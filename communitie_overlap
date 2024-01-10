@@ -1,0 +1,18 @@
+library(overlap)
+
+data(kerinci)#data loads specific dataset
+summary(kerinci)#gives use information about the dataset and summarises how data are devided
+kerinci$timeRad <- kerinci$Time * 2 * pi
+
+tiger <- kerinci[kerinci$Sps=="tiger",]#inside the kerinci dataset in the column sps we select just the data about tiger 
+
+timetig <- tiger$timeRad# select only the time voice in the toger data
+densityPlot(timetig, rug=TRUE) 
+
+macaque <- kerinci[kerinci$Sps=="macaque",]
+head(macaque)#head means the first part of the function
+
+timemac <- macaque$timeRad
+densityPlot(timemac, rug=TRUE)
+
+overlapPlot(timetig, timemac)# overlap the two graphs
