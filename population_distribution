@@ -1,0 +1,80 @@
+library(sdm)
+library(terra)
+
+#we select a specific dataset inside the package
+file <- system.file("external/species.shp", package="sdm")
+
+#then we rename these data, and we use just part of them, 
+rana <- vect(file)
+rana$Occurrence
+
+plot(rana)
+
+# Selecting presences, the number one indicates the presence
+pres <- rana[rana$Occurrence==1,]
+plot(pres)
+
+# for the absence we use the number 0
+abse <- rana[rana$Occurrence==0,]
+plot(abse)
+
+# we can now plot presences and absences, one beside the other
+par(mfrow=c(1,2))
+plot(pres)
+plot(abse)
+
+# when there are too many images graphs we can clear everything using
+dev.off()
+
+# we can plot abse and press together with two  different colours
+plot(pres, col="dark blue")
+points(abse, col="light blue")
+
+# predictors: environmental variables
+# file <- system.file("external/species.shp", package="sdm")
+# rana <- vect(file)
+
+# elevation predictor
+elev <- system.file("external/elevation.asc", package="sdm") 
+elevmap <- rast(elev)  #rast create surface images 
+plot(elevmap)
+points(pres, cex=.5)
+
+# temperature predictor
+temp <- system.file("external/temperature.asc", package="sdm") 
+tempmap <- rast(temp) 
+plot(tempmap)
+points(pres, cex=.5)
+
+# we can  do the same with vegetation cover
+vege <- system.file("external/vegetation.asc", package="sdm") 
+vegemap <- rast(vege) 
+plot(vegemap)
+points(pres, cex=.5)
+
+# exrcise: do the same with vegetation cover
+prec <- system.file("external/precipitation.asc", package="sdm") 
+precmap <- rast(prec)
+plot(precmap)
+points(pres, cex=.5)
+
+# final multiframe
+
+par(mfrow=c(2,2))
+
+# elev
+plot(elevmap)
+points(pres, cex=.5)
+
+# temp
+plot(tempmap)
+points(pres, cex=.5)
+
+# vege
+plot(vegemap)
+points(pres, cex=.5)
+
+# prec
+plot(precmap)
+points(pres, cex=.5)
+#points overlap the coordinates to the surface images
