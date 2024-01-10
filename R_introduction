@@ -1,0 +1,40 @@
+# Assign to an object
+zima <- 2 + 3
+zima
+
+gianni <- 5 + 3
+gianni
+
+#now use together the two renamed data
+
+final <- zima * gianni
+final
+
+final^2
+
+# array
+sophi <- c(10, 20, 30, 50, 70)
+# lets pretend sophie is an array for microplastics 
+# functions have parentheses and inside them there are arguments, c groups raw data together
+
+paula <- c(100, 500, 600, 1000, 2000) 
+# paula instead represents people
+
+plot(paula, sophi)
+
+#plot creates charts and images from data 
+
+plot(paula, sophi, xlab="number of people", ylab="microplastics")
+
+#functions have different specifications, in this case we give to the x and y axis names
+
+people <- paula
+microplastics <- sophi
+
+plot(people, microplastics)
+plot(people, microplastics, pch=19)
+
+#pch gives to the chart different shapes for the coordinates , it depends by the number we use, so it does cex for dimensions and col for colours)
+
+plot(people, microplastics, pch=19, cex=2)
+plot(people, microplastics, pch=19, cex=2, col="blue")
