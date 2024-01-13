@@ -60,3 +60,14 @@ par(mfrow=c(3,1))
 plot(amazon14, col=cl)
 plot(amazon18, col=cl)
 plot(amazon23, col=cl)
+
+## now I obtained three images of the same area over the time
+##now I wanto to do the difference between the first and the last year of the decade of interest (2024-2018)
+
+dif24_14=(amazon24-amazon14)
+plot(dif24_14, col=cl)
+
+## the next step is to make a future prediction of the LAI in the area 
+##
+
+
