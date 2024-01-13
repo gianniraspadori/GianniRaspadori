@@ -49,4 +49,12 @@ amazon14<-crop(lai14, Square)
 amazon18<-crop(lai18, Square)
 amazon23<-crop(lai23, Square)
 
-## 
+## Now I confront all the images 
+
+par(mfrow=c(3,1))
+
+amazon14<-crop(lai14, Square)
+amazon18<-crop(lai18, Square)
+amazon23<-crop(lai23, Square)
+
+
