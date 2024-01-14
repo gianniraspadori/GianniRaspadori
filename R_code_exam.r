@@ -67,7 +67,38 @@ plot(amazon23, col=cl)
 dif24_14=(amazon24-amazon14)
 plot(dif24_14, col=cl)
 
-## the next step is to make a future prediction of the LAI in the area 
-##
+## Now I want to do the PCA for the 2014 and 2024
+
+pc1_amazon14<-focal(amazon14, matrix(1/49,7,7),fun=sd)
+pc1_amazon24<-focal(amazon24, matrix(1/49,7,7),fun=sd)
+pca<-c(pc1_amazon24,pc1_amazon14)
+
+## I can plot the two standard deviation for each pca
+
+plot(pca)
+
+## and the trend of the two pca
+
+plot(pc1_amazon24,pc1_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
+
+##I'd like to add a red line that shows the trend of the graph but I need to convert raster data in matrix
+
+matrice_pc1_amazon14 <- matrix(pc1_amazon14[], ncol = ncol(pc1_amazon14), byrow = TRUE)
+matrice_pc1_amazon24 <- matrix(pc1_amazon24[], ncol = ncol(pc1_amazon24), byrow = TRUE)
+
+## Then create a dataframe
+
+data <- data.frame(pc1_amazon14 = as.vector(matrice_pc1_amazon14),pc1_amazon24 = as.vector(matrice_pc1_amazon24))
+
+## Make the linear regressione
+
+regression_model <- lm(pc1_amazon14 ~ pc1_amazon24, data)
+
+##now I can plot again the variation between the two pca with the line I neede
+
+plot(pc1_amazon24,pc1_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
+abline(regression_model, col=red)
+
+
 
 
