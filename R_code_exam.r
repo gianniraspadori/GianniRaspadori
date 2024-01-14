@@ -75,7 +75,7 @@ pca<-c(pc1_amazon24,pc1_amazon14)
 
 ## I can plot the two standard deviation for each pca
 
-plot(pca)
+plot(pca, col=cl)
 
 ## and the trend of the two pca
 
