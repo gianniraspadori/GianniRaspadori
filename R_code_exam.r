@@ -81,23 +81,6 @@ plot(pca, col=cl)
 
 plot(pc1_amazon24,pc1_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
 
-##I'd like to add a red line that shows the trend of the graph but I need to convert raster data in matrix
-
-matrice_pc1_amazon14 <- matrix(pc1_amazon14[], ncol = ncol(pc1_amazon14), byrow = TRUE)
-matrice_pc1_amazon24 <- matrix(pc1_amazon24[], ncol = ncol(pc1_amazon24), byrow = TRUE)
-
-## Then create a dataframe
-
-data <- data.frame(pc1_amazon14 = as.vector(matrice_pc1_amazon14),pc1_amazon24 = as.vector(matrice_pc1_amazon24))
-
-## Make the linear regressione
-
-regression_model <- lm(pc1_amazon14 ~ pc1_amazon24, data)
-
-##now I can plot again the variation between the two pca with the line I neede
-
-plot(pc1_amazon24,pc1_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
-abline(regression_model, col=red)
 
 
 
