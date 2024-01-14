@@ -72,7 +72,12 @@ plot(dif24_14, col=cl)
 sum24_14=(amazon24+amazon14)
 ndvi14_24=dif24_14/sum24_14
 
-plot(ndvi14_24, col=cl)
+plot(ndvi14_24)
+
+##now I calculate the standard deviation of NDVI
+
+pc1_nvdi<-focal(ndvi14_24, matrix(1/49,7,7),fun=sd)
+plot(pc1_nvdi)
 
 ## Now I want to do the PCA for the 2014 and 2024
 
