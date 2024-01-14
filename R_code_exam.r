@@ -5,6 +5,7 @@
 library(terra)
 library(ncdf4)
 library(raster)
+library(imageRy)
 
 ## I downloaded some images I will work with from Copernicus' dataset , now I need to set the directory so I can import those images on R
 
