@@ -47,9 +47,9 @@ square<-extent(lon_min,lon_max,lat_min,lat_max)
 
 ## now I screen all the parts I do not need , obtaining just the images of the Amazon for each year
 
-amazon14<-crop(lai14, Square)
-amazon18<-crop(lai18, Square)
-amazon24<-crop(lai24, Square)
+amazon14<-crop(lai14, square)
+amazon18<-crop(lai18, square)
+amazon24<-crop(lai24, square)
 
 ## Now I confront all the images in just one.
 ##I also change the colour to make more evident the difference
@@ -60,7 +60,7 @@ par(mfrow=c(3,1))
 
 plot(amazon14, col=cl)
 plot(amazon18, col=cl)
-plot(amazon23, col=cl)
+plot(amazon24, col=cl)
 
 ## now I obtained three images of the same area over the time
 ##now I wanto to do the difference between the first and the last year of the decade of interest (2024-2018)
