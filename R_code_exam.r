@@ -67,6 +67,12 @@ plot(amazon23, col=cl)
 dif24_14=(amazon24-amazon14)
 plot(dif24_14, col=cl)
 
+##now lets calculate NDVI
+sum24_14=(amazon24+amazon14)
+ndvi14_24=dif24_14/sum24_14
+
+plot(ndvi14_24, col=cl)
+
 ## Now I want to do the PCA for the 2014 and 2024
 
 pc1_amazon14<-focal(amazon14, matrix(1/49,7,7),fun=sd)
@@ -80,6 +86,20 @@ plot(pca, col=cl)
 ## and the trend of the two pca
 
 plot(pc1_amazon24,pc1_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
+
+##last but not least ,I want to compare the three years of my project in the same image to compare the value of all the year.
+## the colours will show in which year there's been and higher value and where
+##first I group the three value
+
+stack_amazon<-c(amazon14,amazon18,amazon24)
+
+## now I can use the RGB function
+
+im.plotRGB(stack_amazon,r=1,g=2,b=3)
+
+## the red colour will show the 2014, the green the 2018 and the blue the 2024
+
+
 
 
 
