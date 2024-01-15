@@ -58,9 +58,9 @@ cl<-colorRampPalette(c("red", "yellow","blue"))(100)
 
 par(mfrow=c(3,1))
 
-plot(amazon14, col=cl)
-plot(amazon18, col=cl)
-plot(amazon24, col=cl)
+plot(amazon14, col=cl, main="2014")
+plot(amazon18, col=cl, main="2018")
+plot(amazon24, col=cl, main="2024")
 
 ## now I obtained three images of the same area over the time
 ##now I wanto to do the difference between the first and the last year of the decade of interest (2024-2018)
