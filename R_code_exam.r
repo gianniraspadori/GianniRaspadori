@@ -68,7 +68,7 @@ plot(amazon24, col=cl, main="2024")
 dif24_14=(amazon24-amazon14)
 plot(dif24_14, col=cl)
 
-##now lets calculate NDVI
+##now let's calculate NDVI
 sum24_14=(amazon24+amazon14)
 ndvi14_24=dif24_14/sum24_14
 
@@ -77,21 +77,23 @@ plot(ndvi14_24, col=cl, main"NDVI 2018-2024")
 ##now I calculate the standard deviation of NDVI
 
 pc1_nvdi<-focal(ndvi14_24, matrix(1/49,7,7),fun=sd)
-plot(pc1_nvdi)
+plot(pc1_nvdi, main="SD NDVI")
 
-## Now I want to do the PCA for the 2014 and 2024
+## Now I want to do the Standard deviation for the 2014 and 2024
 
-pc1_amazon14<-focal(amazon14, matrix(1/49,7,7),fun=sd)
-pc1_amazon24<-focal(amazon24, matrix(1/49,7,7),fun=sd)
-pca<-c(pc1_amazon24,pc1_amazon14)
+sd_amazon14<-focal(amazon14, matrix(1/49,7,7),fun=sd)
+sd_amazon24<-focal(amazon24, matrix(1/49,7,7),fun=sd)
 
-## I can plot the two standard deviation for each pca
 
-plot(pca, col=cl, main="")
+## I can plot the two standard deviation from each dataset
+
+par(mfrow=c(1,2))
+plot(sd_amazon24, col=cl, main= "Standard deviation 2024")
+plot(sd_amazon14, col=cl, main= "Standard deviation 2014")
 
 ## and the trend of the two pca
 
-plot(pc1_amazon24,pc1_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
+plot(sd_amazon24,sd_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
 
 ##last but not least ,I want to compare the three years of my project in the same image to compare the value of all the year.
 ## the colours will show in which year there's been and higher value and where
