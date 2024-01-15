@@ -72,7 +72,7 @@ plot(dif24_14, col=cl)
 sum24_14=(amazon24+amazon14)
 ndvi14_24=dif24_14/sum24_14
 
-plot(ndvi14_24)
+plot(ndvi14_24, col=cl, main"NDVI 2018-2024")
 
 ##now I calculate the standard deviation of NDVI
 
