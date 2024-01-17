@@ -1,3 +1,5 @@
+#Principal Component Analysis (PCA) in R is a statistical method for dimensionality reduction that identifies and represents the most important features in a dataset through linear combinations, aiding in exploratory data analysis and pattern recognition
+
 library(imageRy)
 library(terra)
 library(viridis)
