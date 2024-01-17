@@ -91,9 +91,10 @@ par(mfrow=c(1,2))
 plot(sd_amazon24, col=cl, main= "Standard deviation 2024")
 plot(sd_amazon14, col=cl, main= "Standard deviation 2014")
 
-## and the trend of the two pca
+## and the scatterplot
 
 plot(sd_amazon24,sd_amazon14, main="Variation LAI (2014-2024)", ylab="LAI 2024", xlab="LAI 2014")
+abline(0,1, col="red")
 
 ##last but not least ,I want to compare the three years of my project in the same image to compare the value of all the year.
 ## the colours will show in which year there's been and higher value and where
