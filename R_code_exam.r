@@ -34,7 +34,7 @@ lai24<-fcover24[[1]]
 plot(lai24)
 
 ## those are images of the entire world , but I want to focus my project on the Amazon region
-## So I need to the coordinates to border just the area I will use
+## So I need  the coordinates to border just the area I will use
 
 lat_min=15000
 lat_max=23000
